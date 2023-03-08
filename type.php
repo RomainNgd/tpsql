@@ -25,28 +25,38 @@ $types = getTypes();
             $same = false;
             foreach ($types as $type){
                 if (!$same){
-                    if ($_POST['addType'] == $type){
+                    if ($_POST['addType'] == $type['libelle']){
                         $same = true;
                     }
                 }
             }
-            $success = addType($_POST['addType']);
-            if($success){ ?>
+            if ($same){ ?>
                 <div class="container-md">
-                    <div class="alert alert-success alert-dismissible fade show" role="alert">
-                        <p>La création s'est bien déroulée</p>
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                    </div>
-                </div>
-            <?php }else{ ?>
-                <div class="container-md">
-                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                        <p>La création ne s'est pas bien déroulée</p>
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <p>Le type existe deja</p>
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
                 </div>
             <?php }
-            $types = getTypes();
+            else{
+                $success = addType($_POST['addType']);
+                if($success){ ?>
+                    <div class="container-md">
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            <p>La création s'est bien déroulée</p>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    </div>
+                <?php }else{ ?>
+                    <div class="container-md">
+                        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                            <p>La création ne s'est pas bien déroulée</p>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    </div>
+                <?php }
+                $types = getTypes();
+            }
         }
     // SUPPRESSION
         if(isset($_GET['type']) && $_GET['type'] === 'suppression')
