@@ -20,13 +20,13 @@ $title = isset($title) ? $title : "Catalogue de cours";
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-                    <a href="index.php" class="navbar-brand">Catalogue de cours</a>
+                    <a href="index.php" class="navbar-brand">Accueil</a>
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="index.php">Accueil</a>
+                            <a class="nav-link" aria-current="page" href="index.php">Catalogue</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="#">Catalogue</a>
+                            <a class="nav-link" aria-current="page" href="ressource.php">Ressource</a>
                         </li>
                     </ul>
                 </div>

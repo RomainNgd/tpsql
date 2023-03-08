@@ -3,7 +3,6 @@ $title = "Catalogue de cours";
 
 include'partials/header.php';
 require'request/catalogue.dao.php';
-require'services/imageService.php';
 
 $types = getTypes();
 ?>
